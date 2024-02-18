@@ -7,4 +7,7 @@ def index(request):
 def books(request):
     return render(request,'bookmodule/books.html')
 
+def books1(requset):
+    return render(requset,'templates/layouts/base.html')
+
 # Create your views here.

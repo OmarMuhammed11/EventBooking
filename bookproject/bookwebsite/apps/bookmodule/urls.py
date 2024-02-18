@@ -21,7 +21,7 @@ from . import views
 urlpatterns = [
     path("",views.index,name='index'),
     path("books/",views.books),
-    path("",views.books1),
+    path("book/<int:bnum>",views.book),
     
 
     

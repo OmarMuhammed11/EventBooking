@@ -7,7 +7,12 @@ def index(request):
 def books(request):
     return render(request,'bookmodule/books.html')
 
-def book(requset,bnum):
+
+def book(request,bnum):
     
     return render(request,'bookmodule/book.html')
 # Create your views here.
+
+def get_tags(request):
+    
+    return render(request,'bookmodule/tags.html')

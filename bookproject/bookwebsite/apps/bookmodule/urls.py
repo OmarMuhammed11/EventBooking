@@ -22,6 +22,7 @@ urlpatterns = [
     path("",views.index,name='index'),
     path("books/",views.books),
     path("book/<int:bnum>",views.book),
+    path("tags/",views.get_tags),
     
 
     

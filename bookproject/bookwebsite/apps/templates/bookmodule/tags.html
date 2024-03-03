@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+{% block title %} title for tags {% endblock title %}
+
+{% block content %}
+<p> This text has <b>subtext</b> using b tag</p>
+<p> This text has <strong>subtext</strong> using strong tag</p>
+<p> This text has <i>subtext</i> using i tag</p>
+<p> This text has <em>subtext</em> using em tag</p>
+<p> This text has <small>subtext</small> using small tag</p>
+<p> This text has <mark>subtext</mark> using mark tag</p>
+<p> This text has <del>subtext</del> using del tag</p>
+<p> This text has <ins>subtext</ins> using ins tag</p>
+<p> This text has X<sub>subtext</sub> using sub tag</p>
+<p> This text has X<sup>subtext</sup> using sup tag</p>
+
+<p>Some fruits:</p>
+<ul>
+ <li>Grape</li>
+ <li>Citrus</li>
+ <ul>
+ <li>Orange</li>
+ <ol>
+<li>Enhance immunity</li>
+ <ul>
+ <li>Because of Vitamin C, producing white blood cells is increased</li>
+ </ul>
+<li>Roost brain function</li>
+ </ol>
+ <li>Lemon</li>
+</ul>
+ <li>Apple</li>
+<ol>
+ <li>Prevent inflammation</li>
+ <li>Improve digestive health</li>
+ </ol>
+ <li>Banana</li>
+</ul>
+<style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: colspan="3";
+    }
+   </style>
+<table>
+    <caption>Table 1: order details of customer 1234567</caption>
+    <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Total Price</th>
+    </tr>
+    <tr>
+    <td>Orange</td>
+    <td>15</td>
+    <td>2</td>
+    <td>30</td>
+    </tr>
+    <tr>
+    <td>Lemon</td>
+    <td>6</td>
+    <td>1.50</td>
+    <td>9</td>
+    </tr>
+    <tr>
+    <td>Apple</td>
+    <td>15</td>
+    <td>2.5</td>
+    <td>37.5</td>
+    </tr>
+    </table>
+    
+{% endblock content %}

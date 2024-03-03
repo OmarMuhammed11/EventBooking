@@ -9,6 +9,7 @@ def books(request):
 
 
 def book(request,bnum):
+    books={1:"Sen",2:"Aog"}
     
     return render(request,'bookmodule/book.html')
 # Create your views here.

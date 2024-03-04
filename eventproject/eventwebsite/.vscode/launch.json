@@ -8,11 +8,12 @@
             "name": "Python Debugger: Django",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}\\eventwebsite\\manage.py",
+            "program": "${workspaceFolder}\\manage.py",
             "args": [
                 "runserver"
             ],
-            "django": true
+            "django": true,
+            "autoStartBrowser": false
         }
     ]
 }

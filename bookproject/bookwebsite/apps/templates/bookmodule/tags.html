@@ -1,6 +1,13 @@
 {% extends "layouts/base.html" %}
 {% block title %} title for tags {% endblock title %}
-
+{% block stylesheets %}
+<style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+</style>
+{% endblock stylesheets %}
 {% block content %}
 <p> This text has <b>subtext</b> using b tag</p>
 <p> This text has <strong>subtext</strong> using strong tag</p>
@@ -15,58 +22,52 @@
 
 <p>Some fruits:</p>
 <ul>
- <li>Grape</li>
- <li>Citrus</li>
- <ul>
- <li>Orange</li>
- <ol>
-<li>Enhance immunity</li>
- <ul>
- <li>Because of Vitamin C, producing white blood cells is increased</li>
- </ul>
-<li>Roost brain function</li>
- </ol>
- <li>Lemon</li>
+    <li>Grape</li>
+    <li>Citrus</li>
+        <ul>
+            <li>Orange</li>
+            <ol>
+                <li>Enhance immunity</li>
+                <ul>
+                    <li>Because of Vitamin C, producing white blood cells is increased</li>
+                </ul>
+                <li>Roost brain function</li>
+            </ol>
+            <li>Lemon</li>
+        </ul>
+    <li>Apple</li>
+        <ol>
+            <li>Prevent inflammation</li>
+            <li>Improve digestive health</li>
+        </ol>
+    <li>Banana</li>
 </ul>
- <li>Apple</li>
-<ol>
- <li>Prevent inflammation</li>
- <li>Improve digestive health</li>
- </ol>
- <li>Banana</li>
-</ul>
-<style>
-    table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    }
-   </style>
 <table>
     <caption>Table 1: order details of customer 1234567</caption>
     <tr>
-    <th>Item</th>
-    <th>Quantity</th>
-    <th>Unit Price</th>
-    <th>Total Price</th>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Total Price</th>
     </tr>
     <tr>
-    <td>Orange</td>
-    <td colspan="2">15</td>
-    
-    <td>30</td>
+        <td>Orange</td>
+        <td>15</td>
+        <td colspan="2">20</td>
+        <!--<td>30</td>-->
     </tr>
     <tr>
-    <td>Lemon</td>
-    <td>6</td>
-    <td>1.50</td>
-    <td>9</td>
+        <td>Lemon</td>
+        <td>6</td>
+        <td rowspan="2">1.50</td>
+        <td>9</td>
     </tr>
     <tr>
-    <td>Apple</td>
-    <td>15</td>
-    <td>2.5</td>
-    <td>37.5</td>
+        <td>Apple</td>
+        <td>15</td>
+        <td>2.5</td>
+        <!--<td>37.5</td>-->
     </tr>
-    </table>
+</table>
     
 {% endblock content %}

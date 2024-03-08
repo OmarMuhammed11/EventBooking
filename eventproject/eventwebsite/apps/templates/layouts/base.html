@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width">
+ <title>
+ Soon - {% block title %}{% endblock %}
+ </title>
+ {% block stylesheets %}
+ {% endblock stylesheets %}
+ </head>
+ <body>
+ {% include 'includes/header.html' %}
+ <!--{% include 'includes/sidebar.html' %}-->
+ 
+ {% block content %}
+ {% endblock content %}
+ 
+ {% include 'includes/footer.html' %}
+ </body>
+</html>

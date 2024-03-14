@@ -6,3 +6,7 @@ def index(request):
 
 def event_detil(request):
    return render(request, 'eventmodule/eventd_page.html')
+def event(request):
+   pass
+def events(request):
+   pass

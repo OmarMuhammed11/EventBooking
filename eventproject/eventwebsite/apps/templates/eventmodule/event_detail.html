@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ event.title }}</title>
+</head>
+<body>
+    <h1>{{ event.title }}</h1>
+    <p>{{ event.description }}</p>
+    <p>Date: {{ event.date }}</p>
+    <p>Time: {{ event.time }}</p>
+    <p>Location: {{ event.location }}</p>
+    <a href="{% url 'event_update' event.id %}">Update Event</a>
+    <form action="{% url 'event_delete' event.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Delete Event</button>
+    </form>
+    <a href="{% url 'event_list' %}">Back to Event List</a>
+</body>
+</html>

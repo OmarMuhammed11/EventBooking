@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'events',
+    'apps.eventmodule',
+    'apps.usermodule',
 ]
 
 MIDDLEWARE = [
@@ -85,6 +86,9 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {

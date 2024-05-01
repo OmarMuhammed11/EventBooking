@@ -1,22 +1,26 @@
 from django.shortcuts import render,redirect
 
-def index(request):
-   
-   return render(request, 'eventmodule/home_page.html')
+#def index(request):
+#   
+ #  return render(request, 'eventmodule/home_page.html')
 
-def event_detil(request):
-   return render(request, 'eventmodule/eventd_page.html')
-def event(request):
-   pass
-def events(request):
-   pass
+#def event_detil(request):
+ #  return render(request, 'eventmodule/eventd_page.html')
+#def event(request):
+ #  pass
+#def events(request):
+ #  pass
 
 # events/views.py
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Event
-from .forms import EventForm
+from .forms import EventForm , RegistrationForm
+from django.contrib.auth.views import LoginView
 
+
+#class CustomLoginView(LoginView):
+ #   template_name = 'login.html'  # Specify your login template
 @login_required
 def event_list(request):
     events = Event.objects.all()
@@ -33,6 +37,9 @@ def event_create(request):
         form = EventForm(request.POST)
         if form.is_valid():
             form.save()
+           # event = form.save(commit=False)
+           # event.organizer = request.user  # Set the current user as the organizer
+           # event.save()
             return redirect('event_list')
     else:
         form = EventForm()
@@ -57,3 +64,14 @@ def event_delete(request, event_id):
         event.delete()
         return redirect('event_list')
     return render(request, 'eventmodule/event_confirm_delete.html', {'event': event})
+
+@login_required
+def registration_view(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # Redirect to login page after successful registration
+    else:
+        form = RegistrationForm()
+    return render(request, 'registration/register.html', {'form': form})

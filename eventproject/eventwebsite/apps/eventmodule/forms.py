@@ -1,6 +1,6 @@
 # events/forms.py
 from django import forms
-from .models import Event
+from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 

@@ -22,7 +22,7 @@ from django.contrib import messages
 
 
 def loginPage(request):
-    
+    template_name = ''
     if request.method == 'POST':
         username=request.POST.get('username')
         password=request.POST.get('password')
@@ -32,30 +32,29 @@ def loginPage(request):
             return redirect('home')
         else:
             messages.info(request, 'Username or Password is incorrect')
-    context={}     
-    return render('accounts/login.html',context)  # Specify your login template
+    return render(request,'accounts\login.html')  # Specify your login template
 
 def logoutUser(request):
     logout(request)
     return redirect('Login')
 
 
-@login_required(login_url='login')
+@login_required
 def home(request):
     
     return render(request,'eventmodule/home_page.html')
 
-@login_required(login_url='login')
+@login_required
 def event_list(request):
     events = Event.objects.all()
     return render(request, 'eventmodule/event_list.html', {'events': events})
 
-@login_required(login_url='login')
+@login_required
 def event_detail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     return render(request, 'eventmodule/event_detail.html', {'event': event})
 
-@login_required(login_url='login')
+@login_required
 def event_create(request):
     if request.method == 'POST':
         form = EventForm(request.POST)
@@ -69,7 +68,7 @@ def event_create(request):
         form = EventForm()
     return render(request, 'eventmodule/event_form.html', {'form': form})
 
-@login_required(login_url='login')
+@login_required
 def event_update(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if request.method == 'POST':
@@ -81,7 +80,7 @@ def event_update(request, event_id):
         form = EventForm(instance=event)
     return render(request, 'eventmodule/event_form.html', {'form': form})
 
-@login_required(login_url='login')
+@login_required
 def event_delete(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if request.method == 'POST':

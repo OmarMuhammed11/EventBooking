@@ -11,8 +11,6 @@ class Event(models.Model):
    # organizer = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
        return self.title
-   
-    
 class User(User):
     bio = models.TextField(blank=True)
     birth_date = models.DateField(null=True, blank=True)

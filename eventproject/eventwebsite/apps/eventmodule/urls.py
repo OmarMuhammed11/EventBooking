@@ -1,7 +1,6 @@
 from apps.eventmodule import views
 from django.urls import path , include
 from django.contrib.auth import views as auth_views
-
 urlpatterns = [
   path('',views.home,name ='home'),
   path('login/', views.loginPage, name='login'),
@@ -12,5 +11,4 @@ urlpatterns = [
   path('<int:event_id>/', views.event_detail, name='event_detail'),
   path('<int:event_id>/update/', views.event_update, name='event_update'),
   path('<int:event_id>/delete/', views.event_delete, name='event_delete'),
-
 ]

@@ -11,6 +11,7 @@
     <p>Date: {{ event.date }}</p>
     <p>Time: {{ event.time }}</p>
     <p>Location: {{ event.location }}</p>
+    <p>Number of Attendees: {{ event.num_attendees }}</p>
     <a href="{% url 'event_update' event.id %}">Update Event</a>
     <form action="{% url 'event_delete' event.id %}" method="post">
         {% csrf_token %}

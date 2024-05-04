@@ -1,11 +1,82 @@
 {% extends "layouts/base.html" %}
 
 {% block title %}
-Coming
+Home
 {% endblock title %}
-{% block content %}
+{% block stylesheets%}
+<style>
+body{
+    background : #46565A;
+}
+.content{
+    text-align: center;
+    color: white;
+}
+ h1,h2{
+    text-align: left;
+    color: white;
+}
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background : white
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+   
+   
+   
+</style>
+
+{% endblock stylesheets%}
 <title>Soon</title>
-<h1>Hello Visitors</h1>
-<hr color="red"></hr>
-<p>Coming Soon!</p>
+{% block content %}
+<body>
+
+{% if request.user.is_authenticated %}
+<h1>Hello {{request.user.username}}</h1>
+{% else %}
+<h2>Hello Visitor</h2>
+{% endif %}
+<hr color="white"></hr>
+<div class='content'>
+    
+</div>
+<table>
+    <tr>
+    <th>Event Name</th>
+    <th>Event Date</th>
+    <th>Event Location</th>
+    </tr>
+    
+    {% for event in events %}
+    <tr>
+    {% if request.user.is_authenticated %}
+    <td><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></td>
+    <td>{{event.date}}</td>
+    <td>{{event.location}}</td>
+    {% else %}
+    <td>{{event.title}}</td>
+    <td>{{event.date}}</td>
+    <td>{{event.location}}</td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+
+</table>
+</body>
 {% endblock content %}

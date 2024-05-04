@@ -8,7 +8,7 @@ class EventForm(forms.ModelForm):
     date = forms.DateField(input_formats=['%Y-%m-%d', '%m/%d/%Y'])  # Specify input formats
     class Meta:
         model = Event
-        fields = ['title', 'description', 'date', 'time', 'location']
+        fields = ['title', 'description', 'date', 'time', 'location','num_attendees']
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField()

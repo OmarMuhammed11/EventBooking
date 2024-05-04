@@ -36,25 +36,26 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('Login')
+    return redirect('login')
 
 
-@login_required
+#@login_required(login_url='/login')
 def home(request):
-    
-    return render(request,'eventmodule/home_page.html')
+    events = Event.objects.all()
+    context = {'events': events}
+    return render(request,'eventmodule/home_page.html',context)
 
-@login_required
+@login_required(login_url='/login')
 def event_list(request):
     events = Event.objects.all()
     return render(request, 'eventmodule/event_list.html', {'events': events})
 
-@login_required
+@login_required(login_url='/login')
 def event_detail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     return render(request, 'eventmodule/event_detail.html', {'event': event})
 
-@login_required
+@login_required(login_url='/login')
 def event_create(request):
     if request.method == 'POST':
         form = EventForm(request.POST)
@@ -68,7 +69,7 @@ def event_create(request):
         form = EventForm()
     return render(request, 'eventmodule/event_form.html', {'form': form})
 
-@login_required
+@login_required(login_url='/login')
 def event_update(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if request.method == 'POST':
@@ -80,7 +81,7 @@ def event_update(request, event_id):
         form = EventForm(instance=event)
     return render(request, 'eventmodule/event_form.html', {'form': form})
 
-@login_required
+@login_required(login_url='/login')
 def event_delete(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if request.method == 'POST':
@@ -101,3 +102,10 @@ def registration_view(request):
     else:
         form = RegistrationForm()
     return render(request, 'accounts/register.html', {'form': form})
+
+def about(request):
+    
+    return render(request,'eventmodule/about.html')
+def contact_us(request):
+    
+    return render(request,'eventmodule/contact_us.html')

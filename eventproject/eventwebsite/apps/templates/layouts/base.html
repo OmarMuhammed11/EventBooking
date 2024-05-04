@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width">
  <title>
@@ -10,12 +11,15 @@
  {% endblock stylesheets %}
  </head>
  <body>
- {% include 'includes/header.html' %}
+{% include 'includes/navbar.html' %}
+<!-- {% include 'includes/header.html' %}-->
  <!--{% include 'includes/sidebar.html' %}-->
  
  {% block content %}
  {% endblock content %}
- 
+
  {% include 'includes/footer.html' %}
  </body>
+ 
+ 
 </html>

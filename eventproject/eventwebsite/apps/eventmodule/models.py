@@ -8,6 +8,7 @@ class Event(models.Model):
     date = models.DateField()
     time = models.TimeField()
     location = models.CharField(max_length=200)
+    num_attendees = models.IntegerField()
    # organizer = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
        return self.title

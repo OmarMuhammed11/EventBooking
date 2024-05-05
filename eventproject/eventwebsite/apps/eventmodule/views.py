@@ -109,3 +109,10 @@ def about(request):
 def contact_us(request):
     
     return render(request,'eventmodule/contact_us.html')
+def book_event(request):
+    events = Event.objects.all()
+    context = {'events': events}
+    return render(request,'eventmodule/book_event.html',context)
+
+def account(request):
+    return render(request,'eventmodule/account.html')

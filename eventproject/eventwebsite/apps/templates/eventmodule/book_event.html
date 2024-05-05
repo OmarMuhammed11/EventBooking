@@ -1,22 +1,15 @@
+
 {% extends "layouts/base.html" %}
-
-{% block title %}
-Home
-{% endblock title %}
-{% block stylesheets%}
+{%block title%} Event Book {%endblock title%}
+{% block stylesheets %}
 <style>
-body{
-    background : #46565A;
-}
-.content{
-    text-align: center;
-    color: white;
-}
- h1,h2{
-    text-align: left;
-    color: white;
-}
-
+    body{
+        background : #46565A;
+    }
+    h1,h2,h3{
+        text-align: left;
+        color: white;
+    }
     table {
         width: 100%;
         border-collapse: collapse;
@@ -36,48 +29,31 @@ body{
     tr:nth-child(even) {
         background-color: #f2f2f2;
     }
-
-   
-   
-   
 </style>
 
-{% endblock stylesheets%}
-<title>Soon</title>
+{% endblock stylesheets %}
+
 {% block content %}
 <body>
-
-{% if request.user.is_authenticated %}
-<h1>Hello {{request.user.username}}</h1>
-{% else %}
-<h2>Hello Visitor</h2>
-{% endif %}
-<hr color="white"></hr>
-<div class='content'>
-    
-</div>
+   <h1>Here you can Book Events</h1>
 <table>
     <tr>
     <th>Event Name</th>
     <th>Event Date</th>
     <th>Event Location</th>
-    
+    <th>Event Attendees</th>
     </tr>
     
     {% for event in events %}
     <tr>
-    {% if request.user.is_authenticated %}
     <td><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></td>
     <td>{{event.date}}</td>
     <td>{{event.location}}</td>
-    {% else %}
-    <td>{{event.title}}</td>
-    <td>{{event.date}}</td>
-    <td>{{event.location}}</td>
-        </tr>
-        {% endif %}
+    <td>{{event.num_attendees}}</td>
+    </tr>
     {% endfor %}
 
 </table>
 </body>
 {% endblock content %}
+

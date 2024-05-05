@@ -1,10 +1,26 @@
 <!DOCTYPE html>
+{% extends "layouts/base.html" %}
+
+{% block stylesheets %}
+<style>
+    body{
+        background : #46565A;
+    }
+    h1,h2{
+        text-align: left;
+        color: white;
+    }
+</style>
+
+{% endblock stylesheets %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ event.title }}</title>
 </head>
+{%block title%} Event Details {%endblock title%}
+{% block content %}
 <body>
     <h1>{{ event.title }}</h1>
     <p>{{ event.description }}</p>
@@ -19,4 +35,5 @@
     </form>
     <a href="{% url 'event_list' %}">Back to Event List</a>
 </body>
+{% endblock content %}
 </html>

@@ -54,8 +54,8 @@
       <!--  <a class="btn btn--secondary" href="{% url 'event_list' %}">Welcome {{request.user.username}}</a>-->
         <a href="{% url 'home' %}">Home</a>
         <a class="btn btn--secondary" href="{% url 'event_list' %}">Creat Events</a>
-        <a class="btn btn--secondary" href="{% url 'event_list' %}">Book Event</a>
-        <a class="btn btn--secondary" href="{% url 'event_list' %}">My Profile</a>
+        <a class="btn btn--secondary" href="{% url 'book_event' %}">Book Event</a>
+        <a class="btn btn--secondary" href="{% url 'account' %}">My Profile</a>
         <a class="btn btn--primary" href="{% url 'logout' %}">Logout</a>
         {% else %}
         <a class="btn btn--secondary" href="{% url 'login' %}">Login</a>

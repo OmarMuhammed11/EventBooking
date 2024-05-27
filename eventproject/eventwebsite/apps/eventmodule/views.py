@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+
 
 #def index(request):
 #   
@@ -12,6 +12,7 @@ from django.shortcuts import render,redirect
  #  pass
 
 # events/views.py
+from django.shortcuts import render,redirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import *
@@ -86,7 +87,7 @@ def event_delete(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if request.method == 'POST':
         event.delete()
-        return redirect('event_list')
+        return redirect('event_confirm_delete')
     return render(request, 'eventmodule/event_confirm_delete.html', {'event': event})
 
 #@login_required

@@ -1,7 +1,26 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} book Number{{ bnum }} {% endblock title %}
+{% block title %} book Number-{{ book.id }} {% endblock title %}
 
 {% block content %}
-<h1>hey</h1>
+<table border=2px solid >
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Edition</th>
+        </tr> 
+<tr>
+<td>{{book.title}}</td>
+<td>{{book.author}}</td>
+<td>{{book.price}}</td>
+<td>{{book.edition}}</td>
+</tr>
+</table>
+<a = href= "/books">Go to books</a>
+<br/>
+<a = href= "{% url 'update' book.id%}">Update Book</a>
+<hr/>
+<a = href= "{% url 'delate' book.id%}">Delate Book</a>
+
 {% endblock content %}

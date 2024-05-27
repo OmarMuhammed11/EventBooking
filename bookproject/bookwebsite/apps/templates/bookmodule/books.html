@@ -1,7 +1,27 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} title for book {% endblock title %}
+{% block title %} Books page{% endblock title %}
 
 {% block content %}
-<h1> book 1</h1>
+<h1 id = 'top'> List of books</h1>
+<h2><a href= "/create"> New book? create here</a></h2>
+<table border = 'solid'>
+    <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Price</th>
+    <th>Edition</th>
+    </tr>
+    {%for book in books%}
+    <tr>
+        <td>{{book.id}}</td>
+        <td><a href="{% url 'book_detail' book.id %}">{{ book.title }}</a></td>
+        <td>{{book.author}}</td>
+        <td>{{book.price}}</td>
+        <td>{{book.edition}}</td>
+    </tr>
+    {%endfor%}
+</table>
+<a href = '#top'>Go to the top of page</a>
 {% endblock content %}

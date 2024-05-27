@@ -1,6 +1,7 @@
 {% extends "layouts/base.html" %}
 {% block title %} title for tags {% endblock title %}
 {% block stylesheets %}
+ {% load static %}
 <style>
     table, th, td {
     border: 1.5px solid black;
@@ -9,6 +10,8 @@
 </style>
 {% endblock stylesheets %}
 {% block content %}
+<h1 id = "top">Here</h1>
+<a href="{% static 'statics/Pdfs/FYP presntation (1).pdf' %}">Download</a>
 <p> This text has <b>subtext</b> using b tag</p>
 <p> This text has <strong>subtext</strong> using strong tag</p>
 <p> This text has <i>subtext</i> using i tag</p>
@@ -42,8 +45,9 @@
         </ol>
     <li>Banana</li>
 </ul>
+<hr/>
 <table>
-    <caption>Table 1: order details of customer 1234567</caption>
+    <caption>Table 1: order details of customer 1</caption>
     <tr>
         <th>Item</th>
         <th>Quantity</th>
@@ -70,7 +74,7 @@
     </tr>
 </table>
 
-<p>ssssss</p>
+<hr/>
 
 <table>
     <caption>Test 1</caption>
@@ -97,5 +101,8 @@
         <td>14</td>
     </tr>
 </table>
-    
+<hr/>
+    <a href="#top">Go to top</a>
+    <br/>
+    <a href=" {% url 'index'%}">Go Homepage</a>
 {% endblock content %}

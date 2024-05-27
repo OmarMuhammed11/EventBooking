@@ -11,11 +11,11 @@ class EventForm(forms.ModelForm):
         fields = ['title', 'description', 'date', 'time', 'location','num_attendees']
 
 class RegistrationForm(UserCreationForm):
-    email = forms.EmailField()
+    email = forms.EmailField(required=True)
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(required=True)
+    password = forms.CharField(required=True,widget=forms.PasswordInput)

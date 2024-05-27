@@ -1,0 +1,10 @@
+<h1>Are you Sure?</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="checkbox" name="yes"/><label>Yes</label>
+    <button type = 'submit'>Delate</button>
+    
+</form>
+<br/>
+<a = href= "/books">Cancel and Go to books</a>

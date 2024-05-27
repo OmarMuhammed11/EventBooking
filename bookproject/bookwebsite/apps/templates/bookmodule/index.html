@@ -1,7 +1,22 @@
 {% extends "layouts/base.html" %}
+{% load static%}
 {% block title %} title for index {% endblock title %}
 
 {% block content %}
 <h1>Hello to Ebook World!</h1>
 <h2><a href="/tags">Go to Tags</a></h2>
+<h3><a href="/books">Go to Tags</a></h3>
+<img src = {% static 'images/nmap-logo-256x256.png' %}>
+<form method="post">
+    {% csrf_token %} <!-- to protect the data of the form from attackers -->
+    <label>Keywords:</label>
+    <input type="text" name="keyword" placeholder="enter a keyword"/>
+    <br/> 
+    <label>Search in:</label>
+    <input type="checkbox" name="option1"/><label>Title</label>
+    <input type="checkbox" name="option2"/><label>Author</label>
+    <br/>
+    <button type="submit" >Search</button>
+    </form>
+
 {% endblock content %}

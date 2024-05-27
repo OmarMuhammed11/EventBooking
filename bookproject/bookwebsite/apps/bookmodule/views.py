@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404, render,redirect
-from django import forms
 from .models import Book
 from .forms import BookForm
 from django.db.models import Q,Sum,Avg,Count,Max
@@ -29,7 +28,10 @@ def createBook(request):
     
 def books(request):
      mybooks = Book.objects.all()
-     context = {'books': mybooks}
+     avr=Book.objects.aggregate(Avg('price',defulte = 0.0))
+     sum=Book.objects.aggregate(Sum('price',defulte = 0.0))
+     
+     context = {'books': mybooks,'avg':avr,'sum':sum}
      return render(request,'bookmodule/books.html',context)
 
 def update_book(request,bnum):
